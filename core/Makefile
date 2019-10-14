@@ -1940,7 +1940,7 @@ RECOVERYIMAGE_ID_FILE := $(PRODUCT_OUT)/recovery.id
 define build-recoveryimage-target
   @echo "Generating Changelog for Your Xtended Device"
   $(hide) ./vendor/xtended/tools/changelog.sh
-  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(TARGET_PRODUCT)-Changelog.txt
+  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/system/etc/Changelog.txt
   $(if $(filter true,$(PRODUCT_SUPPORTS_VBOOT)), \
     $(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(INTERNAL_MKBOOTIMG_VERSION_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $(1).unsigned, \
     $(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(INTERNAL_MKBOOTIMG_VERSION_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $(1) --id > $(RECOVERYIMAGE_ID_FILE))
